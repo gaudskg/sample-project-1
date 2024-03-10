@@ -5,6 +5,7 @@ import (
 	"io"
 	"log"
 	"net/http"
+	"os"
 	"strings"
 )
 
@@ -93,7 +94,7 @@ func main() {
 	})
 	port := os.Getenv("PORT")
 	if port == "" {
-		port := "3000"
+		port = "3000" // Default to port 3000 if PORT environment variable is not set
 	}
 	log.Printf("Server starting on port %s...\n", port)
 	log.Fatal(http.ListenAndServe(":"+port, nil))
